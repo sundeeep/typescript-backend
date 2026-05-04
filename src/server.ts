@@ -1,6 +1,5 @@
 // Entry Point
-import {app} from "./app.js"
+import {app} from "./app.js";
+import {env} from "./config/env.js";
 
-app.listen(8000, () => console.log("Server is running at the port: 8000"))
-
-//TODO: Gracefull Shutdown
+app.listen(env.PORT, () => console.log(`Server is running at the port: ${env.PORT}`))

@@ -1,13 +1,6 @@
 // drizzle.config.ts
 import type { Config } from "drizzle-kit";
-import dotenv from "dotenv";
-
-// Load .env before reading DATABASE_URL
-dotenv.config();
-
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is not set in your .env file");
-}
+import { env } from "./src/config/env.js";  
 
 export default {
   // Where your Drizzle schema files are located
@@ -20,7 +13,7 @@ export default {
   dialect: "postgresql",
 
   dbCredentials: {
-    url: process.env.DATABASE_URL,
+    url: env.DATABASE_URL,
   },
 
   // When true, logs every SQL statement that drizzle-kit runs

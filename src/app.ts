@@ -1,4 +1,5 @@
 import express from "express";
+import router from "./routes/index.js";
 
 const app = express()
 
@@ -20,5 +21,9 @@ app.get("/health-check", (_request, response) => {
     }
 })
 
+// routes
+app.use("/", router)
+
+// app.use(globalErrorHandler)
 
 export {app}
